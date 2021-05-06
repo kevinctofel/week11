@@ -8,7 +8,7 @@
 - In the root directory of the server, create an .env file and put this in it (no spaces anywhere):
 
 ```
-  DATABASE_URL=[put your database URL here]
+  DATABASE_URL=put your database URL here
   PORT=8080
   DBSYNC=FALSE   
 ```
