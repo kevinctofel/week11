@@ -10,7 +10,7 @@
 ```
   DATABASE_URL=put your database URL here
   PORT=8080
-  DBSYNC=FALSE   
+  DBSYNC=TRUE 
 ```
 
 - Take the URL from the ElephantSQL database dashboard and put that value in the .env DATABASE_URL variable
