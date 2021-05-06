@@ -30,7 +30,7 @@ All you have to do is add **delete functionality** to the app. Just follow the p
 Continue to practice with what we have learned so far and build more functionality (or re-factor) the code
 to learn more.
 
-Have a fun, safe and healthy summer!
+Have a fun and safe summer!
  
 
  
