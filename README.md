@@ -25,7 +25,7 @@ This Todo app does everything, BUT deletes a todo.
 
 ### Homework (due May 10th)
 
-All you have to do is add delete functionality to the app. Just follow the patterns that have been done for you for the reading, and editing functionality that we have reviewed together in lab.
+All you have to do is add **delete functionality** to the app. Just follow the patterns that have been done for you for the reading, and editing functionality that we have reviewed together in lab.
 
 Continue to practice with what we have learned so far and build more functionality (or re-factor) the code
 to learn more.
