@@ -3,8 +3,6 @@ import TodoList from './TodoList';
 import TodoForm from './TodoForm';
 import './App.css';
 
-import { v4 as uuidv4 } from 'uuid';
-
 function App() {
    
    const [todos, setTodos] = useState([]);
@@ -22,9 +20,8 @@ function App() {
 
     const newTodo =
     { 
-           id: uuidv4(),
            text: text,
-           isCompleted: false
+           iscompleted: false
     }
     
     fetch('http://localhost:8080/api/todos/add', {
@@ -52,7 +49,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => setTodos(data))
       .catch((error) => console.log(error))
-
   }
 
   const completeTodo = id => {
@@ -79,7 +75,7 @@ function App() {
       .catch((error) => console.log(error))
   };
 
-
+console.log(todos)
   return (
     <>
       <h2>Todo App</h2>

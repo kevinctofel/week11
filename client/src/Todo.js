@@ -19,7 +19,7 @@ function Todo({ todo, completeTodo, deleteTodo, editTodo }) {
     const toggleEdit = () => {
         setEdit(!edit);
         // reset input text and error state, if cancelling edit
-        setText(todo.text)
+        setText(todo.todo)
         setError(false)    
     };
     
@@ -47,15 +47,15 @@ function Todo({ todo, completeTodo, deleteTodo, editTodo }) {
    
     return (
         <li>
-             <input type="checkbox" checked = { todo.isCompleted } onChange={() => completeTodo(todo.id)} />
+             <input type="checkbox" checked = { todo.iscompleted } onChange={() => completeTodo(todo.id)} />
              
               {/* ternary ? if truthy, renders text wrapped in <span> : if falsy, renders input field to edit */}
              
               {!edit ? (
                   <>
-                      <span style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}> {todo.text} </span>
+                      <span style={{ textDecoration: todo.iscompleted ? "line-through" : "" }}> {todo.todo} </span>
                       <button onClick ={() => deleteTodo(todo.id)}>X</button>
-                      <button onClick={() => toggleEdit()} disabled={todo.isCompleted}>Edit</button>
+                      <button onClick={() => toggleEdit()} disabled={todo.iscompleted}>Edit</button>
                   </>   
               ) : (
                   <>
