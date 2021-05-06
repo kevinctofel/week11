@@ -24,7 +24,7 @@ const createApp = () => {
 }
 
 const syncDb = async() => {
-  // Eevironment variables are always strings
+  // Environment variables are always strings
   if (process.env.DBSYNC === "TRUE"){
     console.log(`>>> Seeding database`);
     await sync()
