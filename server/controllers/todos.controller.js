@@ -1,4 +1,4 @@
-const { createTodo, getAllTodos, completeTodo, editTodo } = require('../db/todos');
+const { createTodo, getAllTodos, completeTodo, editTodo, deleteTodo } = require('../db/todos');
 const todosController = {};
 
 todosController.readTodos = async (req, res, next) => {
