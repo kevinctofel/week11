@@ -6,63 +6,74 @@ todosController.readTodos = async (req, res, next) => {
    // sending back array of objects
    // note: if you wanted an object with a todos key containing an array, you would:
    //       res.status(200).send({todos}) 
-   res.status(200).send(todos) 
+   res.status(200).send(todos)
    next()
 }
 
 todosController.addTodo = async (req, res, next) => {
 
-   const {text, iscompleted} = req.body;
+   const { text, iscompleted } = req.body;
 
    try {
       await createTodo({
-         todo: text, 
+         todo: text,
          iscompleted: iscompleted,
       });
 
       // note: you could have the query return the added todo to validate a successful add
       console.log('>>> INSERT successful')
       // next is needed because you have two callbacks to execute; addTodo(), then readTodos()
-      next() 
+      next()
 
-  } catch (error) {
+   } catch (error) {
       console.error(e)
-  }
+   }
 }
 
 todosController.completeTodo = async (req, res, next) => {
 
-   const {id} = req.body;
+   const { id } = req.body;
 
    try {
 
-      await completeTodo({id});
- 
+      await completeTodo({ id });
+
       console.log('>>> UPDATE iscompleted successful')
       // next is needed because you have two callbacks to execute; completeTodo(), then readTodos()
-      next() 
+      next()
 
-  } catch (error) {
+   } catch (error) {
       console.error(error)
-  }
+   }
 }
 
 todosController.editTodo = async (req, res, next) => {
 
-   const {id, text} = req.body;
-   
-   try {
-       await editTodo({id, text})
+   const { id, text } = req.body;
 
-       console.log('>>> UPDATE todo successful')
-       // next is needed because you have two callbacks to execute; editTodo(), then readTodos()
-       next() 
-      } catch (error) {
-         console.error(error)
+   try {
+      await editTodo({ id, text })
+
+      console.log('>>> UPDATE todo successful')
+      // next is needed because you have two callbacks to execute; editTodo(), then readTodos()
+      next()
+   } catch (error) {
+      console.error(error)
    }
 }
 
-todosController.deleteTodo = (req, res, next) => {
+todosController.deleteTodo = async (req, res, next) => {
+
+   const {id}  = req.body;
+   try {
+      await deleteTodo({ id });
+
+      console.log('>>> DELETE todo successful');
+      next()
+   }
+   catch (error) {
+      console.error(error);
+   }
 
    /*
        What do we do to update this?
@@ -70,9 +81,9 @@ todosController.deleteTodo = (req, res, next) => {
        You will have to re-write all this code below
    */
 
-   const deleteID = req.params.id;
-   listoftodos.splice(listoftodos.findIndex((todo) => todo.id === deleteID), 1);
-   res.status(200).send(listoftodos);
+   // const id = req.params.id;
+   // listoftodos.splice(listoftodos.findIndex((todo) => todo.id === deleteID), 1);
+   // res.status(200).send(listoftodos);
 }
 
 module.exports = todosController;

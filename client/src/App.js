@@ -68,8 +68,16 @@ function App() {
   };
 
   const deleteTodo = id => {
+
+    const deleteThisToDo = {
+      id: id
+    }
    
-    fetch('http://localhost:8080/api/todos/delete/' + id)
+    fetch('http://localhost:8080/api/todos/delete', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(deleteThisToDo)
+    })
       .then((response) => response.json())
       .then((data) => setTodos(data))
       .catch((error) => console.log(error))

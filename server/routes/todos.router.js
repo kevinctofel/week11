@@ -7,6 +7,6 @@ router.get('/todos/', todosController.readTodos);
 router.post('/todos/add/', todosController.addTodo, todosController.readTodos);
 router.put('/todos/complete/', todosController.completeTodo, todosController.readTodos);
 router.put('/todos/update/', todosController.editTodo, todosController.readTodos);
-router.get('/todos/delete/:id', todosController.deleteTodo);
+router.delete('/todos/delete/', todosController.deleteTodo, todosController.readTodos);
 
 module.exports = router;
